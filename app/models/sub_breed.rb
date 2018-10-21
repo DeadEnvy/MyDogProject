@@ -1,0 +1,2 @@
+class SubBreed < ApplicationRecord
+end
