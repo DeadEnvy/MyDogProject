@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  DogType: MyString
+  Sound: MyString
+  Age: 1
+  Size: MyString
+  MainBreedName: one
+
+two:
+  DogType: MyString
+  Sound: MyString
+  Age: 1
+  Size: MyString
+  MainBreedName: two
