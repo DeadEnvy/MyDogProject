@@ -1,3 +1,3 @@
 class MainBreed < ApplicationRecord
-  belongs_to :SubBreedName
+  has_many :sub_breeds
 end

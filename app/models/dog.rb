@@ -1,3 +1,4 @@
 class Dog < ApplicationRecord
-  belongs_to :MainBreedName
+  belongs_to :main_breed
+  belongs_to :sub_breed
 end

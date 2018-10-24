@@ -38,6 +38,12 @@ info["message"].each do |breeds|
 end
 
 
-sound = Faker::Creature::Dog.sound
-
+sound = Faker::Dog.sound
+breed = MainBreed.sample
+Dog.create(main_breed: breed)
 puts "#{sound}"
+
+MainBreed.all.each do |breed|
+  if breed.sub_breeds.size > 0
+  end
+end
