@@ -10,6 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2018_10_21_150912) do
+
+  create_table "dogs", force: :cascade do |t|
+    t.string "Sound"
+    t.integer "Age"
+    t.string "Size"
+    t.integer "main_breed_id"
+    t.integer "sub_breed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["main_breed_id"], name: "index_dogs_on_main_breed_id"
+    t.index ["sub_breed_id"], name: "index_dogs_on_sub_breed_id"
+  end
+
+  create_table "main_breeds", force: :cascade do |t|
+    t.string "MainBreedName"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sub_breeds", force: :cascade do |t|
+    t.string "SubBreedName"
+    t.integer "main_breed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["main_breed_id"], name: "index_sub_breeds_on_main_breed_id"
+  end
 
 end
