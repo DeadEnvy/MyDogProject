@@ -22,21 +22,22 @@ info["message"].each do |breeds|
    dogBreedCaps = dogBreed.capitalize
  
   if breeds[1].count == 0
-  puts "No sub: #{dogBreedCaps}"
+  # puts "No sub: #{dogBreedCaps}"
    # main_breed.create(MainBreedName: dogBreedCaps)
-  else 
-    puts "Has sub: #{dogBreedCaps}"
+   # dog.create(DogType: dogBreedCaps, 
+#               Sound: Faker::Creature::Dog.sound)
   end
-
   breeds[1].each do |subbreeds|
   subBreedCaps = subbreeds.capitalize
 
-    puts "Sub: #{subBreedCaps}"
+
+    # puts "Sub: #{subBreedCaps}"
   # sub_breed.create(SubBreedName: subBreedCaps)
    
-  # fullBreed =  "#{subBreedCaps} #{dogBreedCaps}"
-
-
   end
 end
 
+
+sound = Faker::Creature::Dog.sound
+
+puts "#{sound}"

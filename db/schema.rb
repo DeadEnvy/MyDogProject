@@ -10,31 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_21_150912) do
-
-  create_table "dogs", force: :cascade do |t|
-    t.string "DogType"
-    t.string "Sound"
-    t.integer "Age"
-    t.string "Size"
-    t.integer "MainBreedName_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["MainBreedName_id"], name: "index_dogs_on_MainBreedName_id"
-  end
-
-  create_table "main_breeds", force: :cascade do |t|
-    t.string "MainBreedName"
-    t.integer "SubBreedName_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["SubBreedName_id"], name: "index_main_breeds_on_SubBreedName_id"
-  end
-
-  create_table "sub_breeds", force: :cascade do |t|
-    t.string "SubBreedName"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 0) do
 
 end
