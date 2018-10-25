@@ -7,6 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+MainBreed.Destroy_All
+SubBreed.Destroy_All
+
 require 'net/http'
 require 'json'
 require 'pp'
@@ -22,12 +25,16 @@ info["message"].each do |breeds|
    dogBreedCaps = dogBreed.capitalize
  
   if breeds[1].count == 0
-    MainBreed.create(MainBreedName: dogBreedCaps)
+   # MainBreed.create(MainBreedName: dogBreedCaps)
+   puts "Dogs with no sub breeds #{dogBreedCaps}"
+  else 
+    puts "Dogs with sub breeds #{dogBreedCaps}"
   end
+
  
   breeds[1].each do |subbreeds|
   subBreedCaps = subbreeds.capitalize
-  subbreedTable = SubBreed.create(SubBreedName: subBreedCaps)
+  SubBreed.create(SubBreedName: subBreedCaps)
   end
 end
 

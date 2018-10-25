@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2018_10_21_150912) do
 
   create_table "main_breeds", force: :cascade do |t|
     t.string "MainBreedName"
+    t.boolean "HasSubBreed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
