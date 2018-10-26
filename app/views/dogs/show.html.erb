@@ -1,5 +1,29 @@
-<h3><%= @dog.main_breed.MainBreedName %></h2>
-
+<% if @dog.sub_breed_id != nil %>
+<h2><%= @dog.sub_breed.SubBreedName %> <%= @dog.main_breed.MainBreedName %></h2>
+<% else %>
+<h2><%= @dog.main_breed.MainBreedName %> </h2>
+<% end %>
 <p>
-    <b> Main Breed Type: </b> <%= @dog.main_breed.MainBreedName =%>
+    <b> Main Breed Type: </b> <%= @dog.main_breed.MainBreedName %>
+
+    <br> </br>
+
+    <% if @dog.sub_breed_id != nil %>
+        <b> Sub Breed Type: </b> <%= @dog.sub_breed.SubBreedName %>
+    <% else %>
+        <b> This dog does not have a sub breed! </b>
+    <% end %>
+
+    <br> </br>
+
+    <b> Sound: </b> <%= @dog.Sound %>
+
+    <br> </br> 
+
+    <b> Meme Phrase: </b> <%= @dog.MemePhrase %>
+    
+    <br> </br> 
+
+    <b> Age: </b> <%= @dog.Age %>
+    
 </p>

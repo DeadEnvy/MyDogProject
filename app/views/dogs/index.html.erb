@@ -5,7 +5,11 @@
 <ul>
     <% @dogs.each do |dog| %>
         <li> 
+        <% if dog.sub_breed_id != nil %>
+            <%= link_to dog.sub_breed.SubBreedName, dog %> <%= link_to dog.main_breed.MainBreedName, dog %> 
+        <% else %>
             <%= link_to dog.main_breed.MainBreedName, dog %> 
+        <% end %>    
         </li>
     <% end %>
 </ul>
