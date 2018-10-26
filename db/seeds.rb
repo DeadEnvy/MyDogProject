@@ -5,10 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+ Dog.destroy_all
+ SubBreed.destroy_all
+ MainBreed.destroy_all
 
 
-MainBreed.destroy_all
-SubBreed.destroy_all
+
+
 
 require 'net/http'
 require 'json'
@@ -30,12 +33,18 @@ info =  JSON.parse(response)
  info["message"].each do |breeds|
     dogBreed = "#{breeds[0]}"
     dogBreedCaps = dogBreed.capitalize
+
  
   if breeds[1].count == 0
   main_dog_type = MainBreed.create(MainBreedName: dogBreedCaps, HasSubBreed: false)
-   puts "No sub breeds #{dogBreedCaps}"
+  Dog.create(Sound: Faker::Dog.sound,
+             MemePhrase: Faker::Dog.meme_phrase,
+             Age: Faker::Dog.age,
+             main_breed: main_dog_type,
+             sub_breed: nil)
+   #puts "No sub breeds #{dogBreedCaps}"
   else 
-   puts "Has sub breeds #{dogBreedCaps}"
+   #puts "Has sub breeds #{dogBreedCaps}"
    main_dog_type = MainBreed.create(MainBreedName: dogBreedCaps, HasSubBreed: true)
   end
 
@@ -43,18 +52,24 @@ info =  JSON.parse(response)
   breeds[1].each do |subbreeds|
     subBreedCaps = subbreeds.capitalize
     
-    SubBreed.create(SubBreedName: subBreedCaps,
+    subbreed_type = SubBreed.create(SubBreedName: subBreedCaps,
                     main_breed: main_dog_type)
+
+    Dog.create(Sound: Faker::Dog.sound,
+               MemePhrase: Faker::Dog.meme_phrase,
+               Age: Faker::Dog.age,
+               main_breed: main_dog_type,
+               sub_breed: subbreed_type)
 
     #puts "#{do_this.errors.full_messages}"
 
-    puts "  #{subBreedCaps} #{dogBreedCaps}"
+    #puts "  #{subBreedCaps} #{dogBreedCaps}"
   end
 end
 
-# puts "There are: #{MainBreed.count} main breeds"
-# puts "There are: #{SubBreed.count} sub breeds"
-
+ puts "There are: #{MainBreed.count} main breeds"
+ puts "There are: #{SubBreed.count} sub breeds"
+ puts "There are: #{Dog.count} dogs"
 # breed = MainBreed.sample
 # Dog.create(main_breed: breed)
 

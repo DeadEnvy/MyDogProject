@@ -1,5 +1,8 @@
 <h3>Heres a list of dogs!</h3>
 
+
+<%= paginate @dogs %>
+
 <ul>
     <% @dogs.each do |dog| %>
         <li> <%= dog.MainBreedName %> </li>

@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(version: 2018_10_21_150912) do
 
   create_table "dogs", force: :cascade do |t|
     t.string "Sound"
-    t.integer "Age"
-    t.string "Size"
+    t.string "MemePhrase"
+    t.string "Age"
     t.integer "main_breed_id"
     t.integer "sub_breed_id"
     t.datetime "created_at", null: false
