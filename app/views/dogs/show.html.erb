@@ -1,29 +1,46 @@
-<% if @dog.sub_breed_id != nil %>
-<h2><%= @dog.sub_breed.SubBreedName %> <%= @dog.main_breed.MainBreedName %></h2>
-<% else %>
-<h2><%= @dog.main_breed.MainBreedName %> </h2>
-<% end %>
-<p>
-    <b> Main Breed Type: </b> <%= @dog.main_breed.MainBreedName %>
 
-    <br> </br>
 
-    <% if @dog.sub_breed_id != nil %>
-        <b> Sub Breed Type: </b> <%= @dog.sub_breed.SubBreedName %>
-    <% else %>
-        <b> This dog does not have a sub breed! </b>
-    <% end %>
+<section id="about" class="about-section text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2 class="text-white mb-4">
+            <% if @dog.sub_breed_id != nil %>
+                <%= @dog.sub_breed.SubBreedName %> <%= @dog.main_breed.MainBreedName %>
+            <% else %>
+            <%= @dog.main_breed.MainBreedName %>
+            <% end %>
+            </h2>
+            <p class="text-white-50">
 
-    <br> </br>
+                <b> Main Breed Type: </b> <%= @dog.main_breed.MainBreedName %>
+            
+                <br> </br>
+            
+                <% if @dog.sub_breed_id != nil %>
+                    <b> Sub Breed Type: </b> <%= @dog.sub_breed.SubBreedName %>
+                <% else %>
+                    <b> This dog does not have a sub breed! </b>
+                <% end %>
+            
+                <br> </br>
+            
+                <b> Sound: </b> <%= @dog.Sound %>
+            
+                <br> </br> 
+            
+                <b> Meme Phrase: </b> <%= @dog.MemePhrase %>
+                
+                <br> </br> 
+            
+                <b> Age: </b> <%= @dog.Age %>
+                
+            </p>
+            </p>
+          </div>
+        </div>
+        <img src="img/ipad.png" class="img-fluid" alt="">
+      </div>
+    </section>
 
-    <b> Sound: </b> <%= @dog.Sound %>
-
-    <br> </br> 
-
-    <b> Meme Phrase: </b> <%= @dog.MemePhrase %>
-    
-    <br> </br> 
-
-    <b> Age: </b> <%= @dog.Age %>
-    
-</p>
+   
