@@ -32,20 +32,19 @@ info =  JSON.parse(response)
     dogBreedCaps = dogBreed.capitalize
  
   if breeds[1].count == 0
-   #MainBreed.create(MainBreedName: dogBreedCaps, HasSubBreed: false)
+   MainBreed.create(MainBreedName: dogBreedCaps, HasSubBreed: false)
    #puts "Dogs with no sub breeds #{dogBreedCaps}"
   else 
    #puts "Dogs with sub breeds #{dogBreedCaps}"
-   #MainBreed.create(MainBreedName: dogBreedCaps, HasSubBreed: true)
+   MainBreed.create(MainBreedName: dogBreedCaps, HasSubBreed: true)
   end
 
  
   breeds[1].each do |subbreeds|
     subBreedCaps = subbreeds.capitalize
-    do_this = SubBreed.create(SubBreedName: subBreedCaps,
-                              MainBreed: MainBreed.find_by(MainBreedName: dogBreedCaps))
+    do_this = SubBreed.create(SubBreedName: subBreedCaps)
 
-    puts "#{do_this.errors.full_messages}"
+    #puts "#{do_this.errors.full_messages}"
 
     #puts "#{subBreedCaps} #{dogBreedCaps}"
   end
