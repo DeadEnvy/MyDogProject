@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 resources :dogs, only: [:index, :show]
 
+resources :search, only: [:index] do
+  collection do
+    get 'results'
+  end
+end
+
 
   root to: 'dogs#index'
 

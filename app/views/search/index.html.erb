@@ -1,0 +1,19 @@
+<section id="about" class="about-section text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+            <h2 class="text-white ">Search for your Favourite Breed!</h2>
+            <p class="text-white">                
+                <%= form_tag(results_search_index_path, method: "get") do %>
+                    <p class="text-white"> <%= label_tag(:q, "Search for:") %> 
+                    <%= text_field_tag(:q) %>
+                    <%= submit_tag("Search") %></p>
+                <% end %>
+            </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+   
