@@ -3,4 +3,5 @@ class MainBreed < ApplicationRecord
 
   validates :MainBreedName, presence: true
   validates :HasSubBreed, presence: true
+  validates_associated :sub_breeds
 end

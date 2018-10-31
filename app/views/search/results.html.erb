@@ -2,16 +2,25 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
-            <h2 class="text-white mb-4">Search Results</h2> 
+            <h2 class="text-white mb-4">    Search Results</h2> 
             <p class="text-white-50">
             <% if @dogs.empty? %>
                 <h2 class="text-white mb-4">No results have been found.</h2>
             <% else %>
-                <% @dogs.each do |breeds| %>
-                   <li> <%= link_to breeds.MainBreedName, results_search_index_path %> </li>
+            <ul>
+                <% @dogs.each do |dog| %>
+                    <% if dog.sub_breed_id != nil %>
+                    <li>
+                    <%= link_to dog.sub_breed.SubBreedName, dog %> <%= link_to dog.main_breed.MainBreedName, dog %> 
+                    </li>
+                <% else %>
+                <li>
+                    <%= link_to dog.main_breed.MainBreedName, dog %>  
+                    </li>
+                    <% end %>
                 <% end %>
             <% end %>
-            </p>
+            </ul>
           </div>
         </div>
     </div>

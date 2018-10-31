@@ -1,24 +1,26 @@
 
 <section id="about" class="about-section text-center">
+
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
             <h2 class="text-white mb-4">Enjoy Your Free List of Doggos</h2>
-            <p class="text-white-50"><ul>
             <%= paginate @dogs %>
-
-            <% @dogs.each do |dog| %>
-                <li> 
-                <% if dog.sub_breed_id != nil %>
-                    <%= link_to dog.sub_breed.SubBreedName, dog %> <%= link_to dog.main_breed.MainBreedName, dog %> 
-                <% else %>
-                    <%= link_to dog.main_breed.MainBreedName, dog %> 
-                <% end %>    
-                </li>
-            <% end %>
-        </ul></p>
-          </div>
+            <p class="text-white-50">
+                <ul>
+                <% @dogs.each do |dog| %>
+                    <li> 
+                    <% if dog.sub_breed_id != nil %>
+                        <%= link_to dog.sub_breed.SubBreedName, dog %> <%= link_to dog.main_breed.MainBreedName, dog %> 
+                    <% else %>
+                        <%= link_to dog.main_breed.MainBreedName, dog %> 
+                    <% end %>    
+                    </li>
+                <% end %>
+                </ul>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
    
